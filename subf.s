@@ -1,4 +1,4 @@
-	.file	"mulf.c"
+	.file	"subf.c"
 	.option nopic
 	.attribute arch, "rv64i2p1_m2p0_a2p1_f2p2_d2p2_c2p0_zicsr2p0"
 	.attribute unaligned_access, 0
@@ -21,7 +21,7 @@ _start:
 	fsw	fa5,-28(s0)
 	flw	fa4,-20(s0)
 	flw	fa5,-24(s0)
-	fmul.s	fa5,fa4,fa5
+	fsub.s	fa5,fa4,fa5
 	fsw	fa5,-28(s0)
 	li	a5,0
 	mv	a0,a5
