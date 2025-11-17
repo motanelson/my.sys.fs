@@ -5,20 +5,24 @@
 	.attribute stack_align, 16
 	.text
  #APP
-	variavel_16k:
+	.global _var16k 
+_var16k:
  .space 16384
  #NO_APP
 	.align	1
 	.globl	_start
 	.type	_start, @function
 _start:
-	addi	sp,sp,-16
-	sd	s0,8(sp)
-	addi	s0,sp,16
+	addi	sp,sp,-32
+	sd	s0,24(sp)
+	addi	s0,sp,32
+	lui	a5,%hi(_var16k)
+	ld	a5,%lo(_var16k)(a5)
+	sd	a5,-24(s0)
 	li	a5,0
 	mv	a0,a5
-	ld	s0,8(sp)
-	addi	sp,sp,16
+	ld	s0,24(sp)
+	addi	sp,sp,32
 	jr	ra
 	.size	_start, .-_start
 	.ident	"GCC: (13.2.0-11ubuntu1+12) 13.2.0"
