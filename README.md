@@ -1,5 +1,6 @@
-assembly risc-v
+50 years from processor 1971
 
-sudo apt-get install  gcc-riscv64-unknown-elf
+
+https://en.wikipedia.org/wiki/Intel_4004
 
 
